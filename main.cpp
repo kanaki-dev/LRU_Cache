@@ -19,11 +19,13 @@ public:
     std::list<Node> l;
     std::unordered_map<std::string, std::list<Node>::iterator> m;
 
+    // constructor
     LRUCache(int maxSize)
     {
         this->maxSize = maxSize > 1 ? maxSize : 1;
     }
 
+    // insertion opteration
     void insertKeyValue(std::string key, int val)
     {
         // update the already store value
@@ -48,6 +50,7 @@ public:
         }
     }
 
+    // return the value associated with key
     int *getValue(std::string key)
     {
         if (m.count(key) != 0)
@@ -64,6 +67,7 @@ public:
         return NULL;
     }
 
+    // return the key of *MostRecentlyUsed Node
     std::string mostRecentKey()
     {
         return l.front().key;
@@ -73,7 +77,7 @@ public:
 int main()
 {
 
-    LRUCache lru(3);
+    LRUCache lru(3); // instance of LRU-Cache
 
     lru.insertKeyValue("🥭", 10);
     lru.insertKeyValue("🍎", 20);
